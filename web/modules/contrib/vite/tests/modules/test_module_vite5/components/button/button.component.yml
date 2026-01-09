@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Button
+props:
+  type: object
+  required:
+    - text
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    text:
+      type: string
+    url:
+      type: string

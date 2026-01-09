@@ -1,0 +1,9 @@
+services:
+  vite.vite:
+    class: Drupal\vite\Vite
+    arguments: ['@messenger', '@logger.factory', '@extension.list.theme', '@extension.list.module', '@library.discovery', '@http_client', '@string_translation', '%app.root%']
+  vite.twig_extension:
+    class: Drupal\vite\Twig\TwigExtension
+    arguments: ['@vite.vite']
+    tags:
+      - {name: twig.extension}

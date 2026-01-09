@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for testing the Vite module.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function test_module_vite5_page_attachments(array &$page): void {
+  $page['#attached']['library'][] = 'test_module_vite5/test_library_import';
+}

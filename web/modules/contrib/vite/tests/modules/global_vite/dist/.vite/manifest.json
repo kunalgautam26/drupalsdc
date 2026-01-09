@@ -1,0 +1,37 @@
+{
+  "_import-BQlpN1He.js": {
+    "file": "assets/import-BQlpN1He.js",
+    "name": "import"
+  },
+  "test_module_vite5_outside_module_root/components/button/button.css": {
+    "file": "assets/button-Dtum58Th.css",
+    "src": "test_module_vite5_outside_module_root/components/button/button.css",
+    "isEntry": true
+  },
+  "test_module_vite5_outside_module_root/components/button/button.js": {
+    "file": "assets/button-FEBBvLX1.js",
+    "name": "button",
+    "src": "test_module_vite5_outside_module_root/components/button/button.js",
+    "isEntry": true
+  },
+  "test_module_vite5_outside_module_root/js/script-import.js": {
+    "file": "assets/script-import-DzygoHD-.js",
+    "name": "script-import",
+    "src": "test_module_vite5_outside_module_root/js/script-import.js",
+    "isEntry": true,
+    "imports": [
+      "_import-BQlpN1He.js"
+    ]
+  },
+  "test_module_vite5_outside_module_root/js/script.js": {
+    "file": "assets/script-N0e6cqTp.js",
+    "name": "script",
+    "src": "test_module_vite5_outside_module_root/js/script.js",
+    "isEntry": true
+  },
+  "test_module_vite5_outside_module_root/scss/styles.scss": {
+    "file": "assets/styles-cUFdXfqL.css",
+    "src": "test_module_vite5_outside_module_root/scss/styles.scss",
+    "isEntry": true
+  }
+}

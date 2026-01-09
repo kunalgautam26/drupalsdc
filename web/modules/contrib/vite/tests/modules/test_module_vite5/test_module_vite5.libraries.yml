@@ -1,0 +1,10 @@
+test_library:
+  css:
+    theme:
+      scss/styles.scss: {}
+  js:
+    js/script.js: {}
+
+test_library_import:
+  js:
+    js/script-import.js: {}

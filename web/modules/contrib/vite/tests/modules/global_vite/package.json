@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "vite_outside_module_root",
+  "type": "module",
+  "packageManager": "yarn@4.4.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.3.2",
+    "sass": "^1.79.5",
+    "vite": "^5.4.9"
+  }
+}

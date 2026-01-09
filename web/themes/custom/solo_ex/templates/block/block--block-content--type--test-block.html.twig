@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Specific theme implementation to display a block of type test_block.
+ *
+ * Available variables:
+ * - content: The content of this block.
+ * - attributes: HTML attributes for the containing element.
+ * ... (other standard block variables)
+ */
+#}
+{% set classes = [
+  'block',
+  'block-content',
+  'block-content--type--test-block',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {# Render the specific content of your custom block #}
+  <div{{ content_attributes.addClass('content') }}>
+    {{ content }}
+    {% embed 'solo_ex:react_counter' with {
+      startCount: 0
+    } %}
+      {% block content %}
+        <div>
+          {# <h2>React Counter</h2>
+          <p>Count: {{ startCount }}</p> #}
+        </div>
+      {% endblock %}
+    {% endembed %}
+    {# Alternatively, print individual fields, e.g.: #}
+    {# {{ content.field_image }} #}
+    {# {{ content.field_link }} #}
+  </div>
+</div>

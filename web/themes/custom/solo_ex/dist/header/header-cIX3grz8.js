@@ -1,0 +1,1 @@
+((e,r)=>{e.behaviors.umamiHeader={attach(t){r("umami-header",'[aria-controls="umami-header__dropdown"]',t).forEach(a=>{a.addEventListener("click",d=>{a.setAttribute("aria-expanded",d.currentTarget.getAttribute("aria-expanded")==="false")})})}}})(Drupal,once);

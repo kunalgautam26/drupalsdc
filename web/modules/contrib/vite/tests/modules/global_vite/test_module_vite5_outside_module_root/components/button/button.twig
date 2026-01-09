@@ -1,0 +1,7 @@
+{% set tag = 'button' %}
+{% if url %}
+  {% set tag = 'a' %}
+  {% set attributes = attributes.setAttribute('href', url) %}
+{% endif %}
+
+<{{ tag }}{{ attributes }}>{{ text }}</{{ tag }}>

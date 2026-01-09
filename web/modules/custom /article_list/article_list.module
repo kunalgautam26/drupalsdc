@@ -1,0 +1,150 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+function article_list_form_alter(&$form, FormStateInterface $form_state, $form_id) : void {
+    if ($form_id === 'node_article_form') {
+        $arr = [
+            4,
+            "a", "b", "c", "d",
+            "a-b", "b-c", "c-d"
+        ];
+        // $arr = [5, "a", "b", "c", "d", "e", "a-b", "a-c", "c-e", "b-d"];
+
+        $path = shortestPath123($arr);
+        dump('actual shortest path', $path);
+    }
+}
+
+function shortestPath123(array $arr) {
+    $nodeCount = $arr[0];
+    $nodes = array_slice($arr, 1, $nodeCount);
+    $nodesEdges = array_slice($arr, $nodeCount+1);
+
+    $start = $nodes[0];
+    $end = end($nodes);
+
+    $graph = [];
+    foreach ($nodes as $node) {
+        $graph[$node] = [];
+    }
+    foreach ($nodesEdges as $edge) {
+       [$u, $v] = explode('-', $edge);
+       $graph[$u][] = $v;
+       $graph[$v][] = $u;
+    }
+    $queue = [];
+    $visited = [];
+
+    array_push($queue, [$start]);
+    $visited[$start] = TRUE;
+
+    while(!empty($queue)) {
+        $path = array_shift($queue);
+        $current = end($path);
+
+        if ($current === $end) {
+            return $path;
+        }
+        foreach ($graph[$current] as $value) {
+          if (!$visited[$value]) {
+            $visited[$value] = TRUE;
+            $newPath = $path;
+            $newPath[] = $value;
+            array_push($queue, $newPath);
+          }
+        }
+    }
+
+    return 'no path found';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function shortestPath(array $arr) {
+    $n = $arr[0];
+
+    // Extract nodes and edges
+    $nodes = array_slice($arr, 1, $n);
+    $edges = array_slice($arr, $n + 1);
+
+    $start = $nodes[0];
+    $end   = $nodes[$n - 1];
+
+    // Build adjacency list
+    $graph = [];
+    foreach ($nodes as $node) {
+        $graph[$node] = [];
+    }
+    foreach ($edges as $edge) {
+        [$u, $v] = explode('-', $edge);
+        $graph[$u][] = $v;
+        $graph[$v][] = $u;
+    }
+
+    // dump($graph); die;
+
+    // BFS setup
+    $queue = [];
+    $visited = [];
+
+    array_push($queue, [$start]);
+    $visited[$start] = true;
+
+    // dump('queue',$queue);
+    while (!empty($queue)) {
+        $path = array_shift($queue);
+        $current = end($path);
+
+        // Destination reached
+        if ($current === $end) {
+            return [
+                'path' => $path,
+                'length' => count($path) - 1
+            ];
+        }
+
+        foreach ($graph[$current] as $neighbor) {
+            if (!isset($visited[$neighbor])) {
+                $visited[$neighbor] = true;
+                $newPath = $path;
+                $newPath[] = $neighbor;
+                array_push($queue, $newPath);
+            }
+        }
+    }
+
+    return "No path exists";
+}
+
+
+
+

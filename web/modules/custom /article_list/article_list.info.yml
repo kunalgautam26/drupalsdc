@@ -1,0 +1,8 @@
+name: Article List
+type: module
+description: "Article List"
+package: Custom
+core_version_requirement: "^10 || ^11"
+version: 1.0.0
+dependencies:
+  - drupal:node

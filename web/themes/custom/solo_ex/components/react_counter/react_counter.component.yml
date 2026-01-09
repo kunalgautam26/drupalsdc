@@ -1,0 +1,14 @@
+name: React Counter
+props:
+  type: object
+  properties:
+    startCount:
+      type: integer
+      title: Start Count
+
+libraryOverrides:
+  vite: true
+  js:
+    index.jsx: { attributes: { type: module } } # Points to our React entry
+  dependencies:
+    - core/drupal

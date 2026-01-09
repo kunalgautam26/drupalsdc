@@ -1,0 +1,30 @@
+{
+    "name": "drupal/vite",
+    "description": "Vite integration for Drupal asset libraries.",
+    "license": "GPL-2.0-or-later",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "wotnak",
+            "email": "wotnak@pm.me",
+            "homepage": "https://www.drupal.org/u/wotnak",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://drupal.org/project/vite",
+    "support": {
+        "issues": "https://drupal.org/project/issues/vite",
+        "source": "https://git.drupalcode.org/project/vite"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.44.0",
+        "smartbees/coding-standards-drupal": "^2.4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true,
+            "phpstan/extension-installer": true
+        }
+    }
+}
