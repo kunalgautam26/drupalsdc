@@ -15,8 +15,11 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.2"
+          php-version: "8.3"
           tools: composer:v2
+
+      - name: Show PHP version
+        run: php -v
 
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
