@@ -1,0 +1,10 @@
+name: 'New Relic RPM'
+description: 'Integration with the New Relic reporting and optimization system.'
+core_version_requirement: ^10.1 || ^11
+type: module
+configure: new_relic_rpm.settings
+
+# Information added by Drupal.org packaging script on 2025-08-11
+version: '2.2.0'
+project: 'new_relic_rpm'
+datestamp: 1754884036

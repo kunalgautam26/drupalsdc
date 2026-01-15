@@ -23,9 +23,13 @@
         "drupal/core-recommended": "^11.3",
         "drupal/devel": "^5.5",
         "drupal/kint-kint": "^2.3",
+        "drupal/lang_dropdown": "^2.4",
         "drupal/layout_builder_operation_link": "^2.2",
+        "drupal/new_relic_rpm": "^2.2",
+        "drupal/pathauto": "^1.14",
         "drupal/solo": "^1.0",
         "drupal/vite": "^1.5",
+        "drupal/webprofiler": "^11.1",
         "drush/drush": "^13.7"
     },
     "conflict": {
