@@ -24,5 +24,40 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
-      - name: PHP syntax check
+      - name: PHP syntax check (custom code)
         run: find web/modules/custom web/themes/custom -name "*.php" -print0 | xargs -0 -n1 php -l
+
+      # ---------------------------
+      # Quality Checks
+      # ---------------------------
+
+      - name: PHPCS (Drupal Coding Standards)
+        run: |
+          if [ -f vendor/bin/phpcs ]; then
+            vendor/bin/phpcs --standard=Drupal,DrupalPractice web/modules/custom web/themes/custom
+          else
+            echo "PHPCS not installed. Skipping..."
+          fi
+
+      - name: PHPStan (Static Analysis)
+        run: |
+          if [ -f vendor/bin/phpstan ]; then
+            vendor/bin/phpstan analyse
+          else
+            echo "PHPStan not installed. Skipping..."
+          fi
+
+      - name: Composer Audit (Security)
+        run: composer audit || true
+
+      # ---------------------------
+      # Unit Tests
+      # ---------------------------
+
+      - name: PHPUnit Tests
+        run: |
+          if [ -f vendor/bin/phpunit ]; then
+            vendor/bin/phpunit
+          else
+            echo "PHPUnit not installed. Skipping..."
+          fi
